@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lannaeat - แหล่งรวมอาหารพื้นเมืองล้านนา</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #8B4513; /* สีน้ำตาลไม้/ดินเผา */
+            --secondary-color: #D2691E; /* สีส้มอิฐ */
+            --accent-color: #FF8C00;
+            --bg-color: #FDFBF7;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navbar */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #FFD700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .menu-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b1d15;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo"><i class="fa-solid fa-bowl-food"></i> Lannaeat</div>
+            <ul class="nav-links">
+                <li><a href="#">หน้าแรก</a></li>
+                <li><a href="#menu">เมนูแนะนำ</a></li>
+                <li><a href="#about">เกี่ยวกับเรา</a></li>
+                <li><a href="#contact">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Lannaeat (ล้านนากิน)</h1>
+            <p>สัมผัสรสชาติดั้งเดิม อาหารพื้นเมืองเหนือแท้ๆ ส่งตรงถึงใจคุณ</p>
+            <a href="#menu" class="btn">ดูเมนูอาหาร</a>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <div class="container" id="menu">
+        <h2 class="section-title">เมนูแนะนำพื้นเมือง</h2>
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยไก่" class="menu-img">
+                <div class="menu-content">
+                    <h3>ข้าวซอยไก่</h3>
+                    <p>บะหมี่น้ำแกงกะทิเข้มข้นสูตรโบราณ เสิร์ฟพร้อมน่องไก่เปื่อยนุ่มและเครื่องเคียงครบเครื่อง</p>
+                    <span class="price">60 บาท</span>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80" alt="น้ำพริกหนุ่ม" class="menu-img">
+                <div class="menu-content">
+                    <h3>น้ำพริกหนุ่ม & แคบหมู</h3>
+                    <p>น้ำพริกจากพริกหนุ่มย่างไฟหอมๆ ทานคู่กับแคบหมูไรมันกรุบกรอบและผักสด</p>
+                    <span class="price">80 บาท</span>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="ลาบหมูคั่ว" class="menu-img">
+                <div class="menu-content">
+                    <h3>ลาบหมูคั่วพื้นเมือง</h3>
+                    <p>ลาบเหนือคั่วสมุนไพรแห้งสูตรเด็ด หอมกลิ่นเครื่องเทศและมะแขว่นแท้จากเชียงใหม่</p>
+                    <span class="price">90 บาท</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lannaeat. สงวนลิขสิทธิ์ทุกประการ. สร้างด้วยความรักในอาหารเหนือ</p>
+    </footer>
+
+</body>
+</html>
